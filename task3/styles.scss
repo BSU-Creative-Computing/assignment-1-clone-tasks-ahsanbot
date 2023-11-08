@@ -1,24 +1,66 @@
 $colors: #8bcff9, #bac5c7, #3c6d8a, #41628a, #e45f5f, #ce835d, #e2eff1, #383639;
 
-* {
+@mixin reset {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+@mixin breakpoint($min-width, $max-width) {
+  @media screen and (min-width: $min-width) and (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin background($colorIndex) {
+  background-color: nth($colors, $colorIndex);
+}
+
+@mixin hoverBackground($colorIndex) {
+  &:hover {
+    @include background($colorIndex);
+  }
+}
+
+* {
+  @include reset;
+}
+
 body {
-  background-color: nth($colors, 1);
+  @include background(1);
 }
 
 footer {
   height: 35px;
-  background-color: nth($colors, 1);
+  @include background(1);
 }
+
 main {
+  .bottom-container {
+    @include background(7);
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include breakpoint(481px, 800px) {
+      height: 82vh;
+    }
+    @include breakpoint(120px, 480px) {
+      height: 80vh;
+    }
+  }
+
   .top-container {
     height: 42vh;
     display: flex;
     justify-content: center;
+    @include breakpoint(481px, 800px) {
+      height: 32vh;
+    }
+    @include breakpoint(120px, 480px) {
+      height: 26vh;
+    }
 
     .image-container {
       display: flex;
@@ -29,188 +71,118 @@ main {
         width: 100%;
         height: 100%;
         object-fit: contain;
+        @include breakpoint(481px, 800px) {
+          content: url("https://via.placeholder.com/300");
+        }
+        @include breakpoint(120px, 480px) {
+          content: url("https://via.placeholder.com/200");
+        }
       }
     }
   }
-  .bottom-container {
-    background-color: nth($colors, 7);
-    height: 53vh;
+
+  .lines {
+    width: 100%;
+    .line1 {
+      @include background(3);
+      height: 5vh;
+      @include hoverBackground(8);
+    }
+    .line2 {
+      @include background(4);
+      height: 5vh;
+      @include hoverBackground(8);
+    }
+    .line3 {
+      @include background(5);
+      height: 5vh;
+      @include hoverBackground(8);
+    }
+    .line4 {
+      @include background(6);
+      height: 5vh;
+      @include hoverBackground(8);
+    }
+  }
+
+  .circles {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 40px;
+    @include breakpoint(481px, 800px) {
+      flex-direction: column;
+      margin-top: 25px;
+    }
+    @include breakpoint(120px, 480px) {
+      flex-direction: column;
+      margin-top: 25px;
+    }
 
-    .lines {
-      width: 100%;
-      .line1 {
-        background-color: nth($colors, 3);
-        height: 5vh;
-        &:hover {
-          background-color: nth($colors, 8);
-        }
+    .circle1,
+    .circle2,
+    .circle3,
+    .circle4 {
+      margin-right: 20px;
+      @include breakpoint(481px, 800px) {
+        margin-top: 10px;
       }
-      .line2 {
-        background-color: nth($colors, 4);
-        height: 5vh;
-
-        &:hover {
-          background-color: nth($colors, 8);
-        }
-      }
-      .line3 {
-        background-color: nth($colors, 5);
-
-        height: 5vh;
-
-        &:hover {
-          background-color: nth($colors, 8);
-        }
-      }
-      .line4 {
-        background-color: nth($colors, 6);
-
-        height: 5vh;
-
-        &:hover {
-          background-color: nth($colors, 8);
-        }
+      @include breakpoint(120px, 480px) {
+        margin-top: 10px;
       }
     }
-    .circles {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 40px;
 
-      .circle1,
-      .circle2,
-      .circle3,
-      .circle4 {
-        margin-right: 20px;
+    .circle1 {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      @include background(3);
+      @include hoverBackground(8);
+      @include breakpoint(481px, 800px) {
+        margin-right: 0;
       }
-
-      .circle1 {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background-color: nth($colors, 3);
-
-        &:hover {
-          background-color: nth($colors, 8);
-        }
-      }
-      .circle2 {
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        background-color: nth($colors, 4);
-
-        &:hover {
-          background-color: nth($colors, 8);
-        }
-      }
-      .circle3 {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background-color: nth($colors, 5);
-
-        &:hover {
-          background-color: nth($colors, 8);
-        }
-      }
-      .circle4 {
-        width: 90px;
-        height: 90px;
-        border-radius: 50%;
-        background-color: nth($colors, 6);
-
-        &:hover {
-          background-color: nth($colors, 8);
-        }
+      @include breakpoint(120px, 480px) {
+        margin-right: 0;
       }
     }
-  }
-}
-
-/* Width between 480px and 800px */
-@media (min-width: 480px) and (max-width: 800px) {
-  main .top-container {
-    height: 32vh;
-  }
-
-  main .bottom-container {
-    height: 82vh;
-  }
-
-  img {
-    content: url("https://via.placeholder.com/300");
-  }
-
-  main .bottom-container .circles {
-    flex-direction: column;
-    margin-top: 25px;
-  }
-
-  main .bottom-container .circles .circle1,
-  .circle2,
-  .circle3,
-  .circle4 {
-    margin-top: 10px;
-  }
-
-  main .bottom-container .circles .circle1 {
-    margin-right: 0;
-  }
-
-  main .bottom-container .circles .circle2 {
-    margin-right: 0;
-  }
-  main .bottom-container .circles .circle3 {
-    margin-right: 0;
-  }
-  main .bottom-container .circles .circle4 {
-    margin-right: 0;
-  }
-}
-
-/* Width less than 480px */
-@media (max-width: 479px) {
-  main .top-container {
-    height: 26vh;
-  }
-
-  main .bottom-container .circles {
-    flex-direction: column;
-    margin-top: 25px;
-  }
-
-  img {
-    content: url("https://via.placeholder.com/200");
-  }
-
-  main .bottom-container {
-    height: 80vh;
-  }
-
-  .main .bottom-container .circles .circle1,
-  .circle2,
-  .circle3,
-  .circle4 {
-    margin-top: 10px;
-  }
-
-  main .bottom-container .circles .circle1 {
-    margin-right: 0;
-  }
-
-  main .bottom-container .circles .circle2 {
-    margin-right: 0;
-  }
-  main .bottom-container .circles .circle3 {
-    margin-right: 0;
-  }
-  main .bottom-container .circles .circle4 {
-    margin-right: 0;
+    .circle2 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      @include background(4);
+      @include hoverBackground(8);
+      @include breakpoint(481px, 800px) {
+        margin-right: 0;
+      }
+      @include breakpoint(120px, 480px) {
+        margin-right: 0;
+      }
+    }
+    .circle3 {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      @include background(5);
+      @include hoverBackground(8);
+      @include breakpoint(481px, 800px) {
+        margin-right: 0;
+      }
+      @include breakpoint(120px, 480px) {
+        margin-right: 0;
+      }
+    }
+    .circle4 {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      @include background(6);
+      @include hoverBackground(8);
+      @include breakpoint(481px, 800px) {
+        margin-right: 0;
+      }
+      @include breakpoint(120px, 480px) {
+        margin-right: 0;
+      }
+    }
   }
 }

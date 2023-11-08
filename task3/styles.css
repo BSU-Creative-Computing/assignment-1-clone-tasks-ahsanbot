@@ -13,10 +13,38 @@ footer {
   background-color: #8bcff9;
 }
 
+main .bottom-container {
+  background-color: #e2eff1;
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  main .bottom-container {
+    height: 82vh;
+  }
+}
+@media screen and (min-width: 120px) and (max-width: 480px) {
+  main .bottom-container {
+    height: 80vh;
+  }
+}
 main .top-container {
   height: 42vh;
   display: flex;
   justify-content: center;
+}
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  main .top-container {
+    height: 32vh;
+  }
+}
+@media screen and (min-width: 120px) and (max-width: 480px) {
+  main .top-container {
+    height: 26vh;
+  }
 }
 main .top-container .image-container {
   display: flex;
@@ -29,159 +57,160 @@ main .top-container .image-container img {
   -o-object-fit: contain;
      object-fit: contain;
 }
-main .bottom-container {
-  background-color: #e2eff1;
-  height: 53vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  main .top-container .image-container img {
+    content: url("https://via.placeholder.com/300");
+  }
 }
-main .bottom-container .lines {
+@media screen and (min-width: 120px) and (max-width: 480px) {
+  main .top-container .image-container img {
+    content: url("https://via.placeholder.com/200");
+  }
+}
+main .lines {
   width: 100%;
 }
-main .bottom-container .lines .line1 {
+main .lines .line1 {
   background-color: #3c6d8a;
   height: 5vh;
 }
-main .bottom-container .lines .line1:hover {
+main .lines .line1:hover {
   background-color: #383639;
 }
-main .bottom-container .lines .line2 {
+main .lines .line2 {
   background-color: #41628a;
   height: 5vh;
 }
-main .bottom-container .lines .line2:hover {
+main .lines .line2:hover {
   background-color: #383639;
 }
-main .bottom-container .lines .line3 {
+main .lines .line3 {
   background-color: #e45f5f;
   height: 5vh;
 }
-main .bottom-container .lines .line3:hover {
+main .lines .line3:hover {
   background-color: #383639;
 }
-main .bottom-container .lines .line4 {
+main .lines .line4 {
   background-color: #ce835d;
   height: 5vh;
 }
-main .bottom-container .lines .line4:hover {
+main .lines .line4:hover {
   background-color: #383639;
 }
-main .bottom-container .circles {
+main .circles {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 40px;
 }
-main .bottom-container .circles .circle1,
-main .bottom-container .circles .circle2,
-main .bottom-container .circles .circle3,
-main .bottom-container .circles .circle4 {
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  main .circles {
+    flex-direction: column;
+    margin-top: 25px;
+  }
+}
+@media screen and (min-width: 120px) and (max-width: 480px) {
+  main .circles {
+    flex-direction: column;
+    margin-top: 25px;
+  }
+}
+main .circles .circle1,
+main .circles .circle2,
+main .circles .circle3,
+main .circles .circle4 {
   margin-right: 20px;
 }
-main .bottom-container .circles .circle1 {
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  main .circles .circle1,
+  main .circles .circle2,
+  main .circles .circle3,
+  main .circles .circle4 {
+    margin-top: 10px;
+  }
+}
+@media screen and (min-width: 120px) and (max-width: 480px) {
+  main .circles .circle1,
+  main .circles .circle2,
+  main .circles .circle3,
+  main .circles .circle4 {
+    margin-top: 10px;
+  }
+}
+main .circles .circle1 {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   background-color: #3c6d8a;
 }
-main .bottom-container .circles .circle1:hover {
+main .circles .circle1:hover {
   background-color: #383639;
 }
-main .bottom-container .circles .circle2 {
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  main .circles .circle1 {
+    margin-right: 0;
+  }
+}
+@media screen and (min-width: 120px) and (max-width: 480px) {
+  main .circles .circle1 {
+    margin-right: 0;
+  }
+}
+main .circles .circle2 {
   width: 70px;
   height: 70px;
   border-radius: 50%;
   background-color: #41628a;
 }
-main .bottom-container .circles .circle2:hover {
+main .circles .circle2:hover {
   background-color: #383639;
 }
-main .bottom-container .circles .circle3 {
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  main .circles .circle2 {
+    margin-right: 0;
+  }
+}
+@media screen and (min-width: 120px) and (max-width: 480px) {
+  main .circles .circle2 {
+    margin-right: 0;
+  }
+}
+main .circles .circle3 {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   background-color: #e45f5f;
 }
-main .bottom-container .circles .circle3:hover {
+main .circles .circle3:hover {
   background-color: #383639;
 }
-main .bottom-container .circles .circle4 {
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  main .circles .circle3 {
+    margin-right: 0;
+  }
+}
+@media screen and (min-width: 120px) and (max-width: 480px) {
+  main .circles .circle3 {
+    margin-right: 0;
+  }
+}
+main .circles .circle4 {
   width: 90px;
   height: 90px;
   border-radius: 50%;
   background-color: #ce835d;
 }
-main .bottom-container .circles .circle4:hover {
+main .circles .circle4:hover {
   background-color: #383639;
 }
-
-/* Width between 480px and 800px */
-@media (min-width: 480px) and (max-width: 800px) {
-  main .top-container {
-    height: 32vh;
-  }
-  main .bottom-container {
-    height: 82vh;
-  }
-  img {
-    content: url("https://via.placeholder.com/300");
-  }
-  main .bottom-container .circles {
-    flex-direction: column;
-    margin-top: 25px;
-  }
-  main .bottom-container .circles .circle1,
-  .circle2,
-  .circle3,
-  .circle4 {
-    margin-top: 10px;
-  }
-  main .bottom-container .circles .circle1 {
-    margin-right: 0;
-  }
-  main .bottom-container .circles .circle2 {
-    margin-right: 0;
-  }
-  main .bottom-container .circles .circle3 {
-    margin-right: 0;
-  }
-  main .bottom-container .circles .circle4 {
+@media screen and (min-width: 481px) and (max-width: 800px) {
+  main .circles .circle4 {
     margin-right: 0;
   }
 }
-/* Width less than 480px */
-@media (max-width: 479px) {
-  main .top-container {
-    height: 26vh;
-  }
-  main .bottom-container .circles {
-    flex-direction: column;
-    margin-top: 25px;
-  }
-  img {
-    content: url("https://via.placeholder.com/200");
-  }
-  main .bottom-container {
-    height: 80vh;
-  }
-  .main .bottom-container .circles .circle1,
-  .circle2,
-  .circle3,
-  .circle4 {
-    margin-top: 10px;
-  }
-  main .bottom-container .circles .circle1 {
-    margin-right: 0;
-  }
-  main .bottom-container .circles .circle2 {
-    margin-right: 0;
-  }
-  main .bottom-container .circles .circle3 {
-    margin-right: 0;
-  }
-  main .bottom-container .circles .circle4 {
+@media screen and (min-width: 120px) and (max-width: 480px) {
+  main .circles .circle4 {
     margin-right: 0;
   }
 }/*# sourceMappingURL=styles.css.map */
